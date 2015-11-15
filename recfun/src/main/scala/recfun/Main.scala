@@ -43,23 +43,19 @@ object Main {
   /**
    * Exercise 3
    */
-    // so for each quantity in coins,
-    // find both the maximum possible amount that can be made with that denomination
-    // and the minimum possible amount that can be made with that denomination
-    // and then use that to run innerCountChange w/ the new money amount +
-    // the remaining coins list +
-    // the the accumulated quantity
+  // starting over . . . do it by generating lists of possible combinations, and when such a list that sums to the total is generated, inc the counter.
   def countChange(money: Int, coins: List[Int]): Int = {
-    def innerCountChange(money: Int, coins: List[Int], accumulatedPossibleWays: Int): Int = {
-      if(money == 0 || coins.isEmpty)
-        accumulatedPossibleWays
+    def innerCount(money: Int, coins: List[Int]): Int = {
+      if(money == 0)
+        1
+      else if (money < 0)
+        0
+      else if (coins.isEmpty && money >= 1)
+        0
       else
-        // recur
-        if (money % coins.head != 0)
-          accumulatedPossibleWays
-        else
-          innerCountChange(money - coins.head, coins.tail, accumulatedPossibleWays + 1)
+        innerCount(money, coins.tail) + innerCount(money - coins.head, coins)
+
     }
-    innerCountChange(money, coins, 0)
+    innerCount(money, coins.sortWith(_.compareTo(_) < 0))
   }
 }
