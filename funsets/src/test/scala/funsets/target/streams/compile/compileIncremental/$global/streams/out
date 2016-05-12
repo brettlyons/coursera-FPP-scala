@@ -1,0 +1,88 @@
+[0m[[0mdebug[0m] [0m[naha] [0m
+[0m[[0mdebug[0m] [0m[naha] Initial source changes: [0m
+[0m[[0mdebug[0m] [0m[naha] 	removed:Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	added: Set(/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] 	modified: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidated products: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] External API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Modified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set(/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] [0m
+[0m[[0mdebug[0m] [0m[naha] Sources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m[naha] 	product: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/target/scala-2.10/classes...[0m
+[0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.11:component from component compiler for Scala 2.10.6[0m
+[0m[[0minfo[0m] [0m'compiler-interface' not yet compiled for Scala 2.10.6. Compiling...[0m
+[0m[[0mdebug[0m] [0mPlain interface to Scala compiler 2.10.6  with arguments: [0m
+[0m[[0mdebug[0m] [0m	-nowarn[0m
+[0m[[0mdebug[0m] [0m	-d[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_e99d33a2[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/usr/lib/jvm/java-8-jdk/jre/lib/resources.jar:/usr/lib/jvm/java-8-jdk/jre/lib/rt.jar:/usr/lib/jvm/java-8-jdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-jdk/jre/lib/jsse.jar:/usr/lib/jvm/java-8-jdk/jre/lib/jce.jar:/usr/lib/jvm/java-8-jdk/jre/lib/charsets.jar:/usr/lib/jvm/java-8-jdk/jre/lib/jfr.jar:/usr/lib/jvm/java-8-jdk/jre/classes:/home/brett/.sbt/boot/scala-2.10.6/lib/scala-library.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/home/brett/.sbt/boot/scala-2.10.6/org.scala-sbt/sbt/0.13.11/xsbti/interface-0.13.11.jar:/tmp/sbt_17ca81da/srcs/org.scala-sbt/compiler-interface/compiler-interface-0.13.11-sources.jar:/home/brett/.sbt/boot/scala-2.10.6/lib/scala-compiler.jar:/home/brett/.sbt/boot/scala-2.10.6/lib/scala-reflect.jar:/home/brett/.sbt/boot/scala-2.10.6/lib/jansi.jar:/home/brett/.sbt/boot/scala-2.10.6/lib/jline.jar[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/API.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/Analyzer.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/Command.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/Compat.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/CompilerInterface.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/ConsoleInterface.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/DelegatingReporter.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/Dependency.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/ExtractAPI.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/ExtractUsedNames.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/LocateClassFile.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/Log.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/Message.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_fe783e9d/xsbt/ScaladocInterface.scala[0m
+[0m[[0minfo[0m] [0m  Compilation completed in 5.426 s[0m
+[0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.11:component from component compiler for Scala 2.10.6[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 6f806871, interfacing (CompilerInterface) with Scala compiler version 2.10.6[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/usr/lib/jvm/java-8-jdk/jre/lib/resources.jar:/usr/lib/jvm/java-8-jdk/jre/lib/rt.jar:/usr/lib/jvm/java-8-jdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-jdk/jre/lib/jsse.jar:/usr/lib/jvm/java-8-jdk/jre/lib/jce.jar:/usr/lib/jvm/java-8-jdk/jre/lib/charsets.jar:/usr/lib/jvm/java-8-jdk/jre/lib/jfr.jar:/usr/lib/jvm/java-8-jdk/jre/classes:/home/brett/.sbt/boot/scala-2.10.6/lib/scala-library.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/target/scala-2.10/classes[0m
+[0m[[31merror[0m] [0m/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala:3: object scalatest is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.scalatest.FunSuite[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala:6: object junit is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.junit.runner.RunWith[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala:7: object scalatest is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.scalatest.junit.JUnitRunner[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala:16: not found: type FunSuite[0m
+[0m[[31merror[0m] [0mclass FunSetSuite extends FunSuite {[0m
+[0m[[31merror[0m] [0m                          ^[0m
+[0m[[31merror[0m] [0m/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala:15: not found: type RunWith[0m
+[0m[[31merror[0m] [0m@RunWith(classOf[JUnitRunner])[0m
+[0m[[31merror[0m] [0m ^[0m
+[0m[[31merror[0m] [0m/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala:51: not found: value FunSets[0m
+[0m[[31merror[0m] [0m  import FunSets._[0m
+[0m[[31merror[0m] [0m         ^[0m
+[0m[[31merror[0m] [0m/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala:53: not found: value test[0m
+[0m[[31merror[0m] [0m  test("contains is implemented") {[0m
+[0m[[31merror[0m] [0m  ^[0m
+[0m[[31merror[0m] [0m/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala:77: not found: value singletonSet[0m
+[0m[[31merror[0m] [0m    val s1 = singletonSet(1)[0m
+[0m[[31merror[0m] [0m             ^[0m
+[0m[[31merror[0m] [0m/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala:78: not found: value singletonSet[0m
+[0m[[31merror[0m] [0m    val s2 = singletonSet(2)[0m
+[0m[[31merror[0m] [0m             ^[0m
+[0m[[31merror[0m] [0m/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala:79: not found: value singletonSet[0m
+[0m[[31merror[0m] [0m    val s3 = singletonSet(3)[0m
+[0m[[31merror[0m] [0m             ^[0m
+[0m[[31merror[0m] [0m/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala:89: not found: value test[0m
+[0m[[31merror[0m] [0m  test("singletonSet(1) contains 1") {[0m
+[0m[[31merror[0m] [0m  ^[0m
+[0m[[31merror[0m] [0m/home/brett/workspace/coursera-FPP-scala/funsets/src/test/scala/funsets/FunSetSuite.scala:104: not found: value test[0m
+[0m[[31merror[0m] [0m  test("union contains all elements of each set") {[0m
+[0m[[31merror[0m] [0m  ^[0m
+[0m[[31merror[0m] [0m12 errors found[0m
+[0m[[0mdebug[0m] [0mCompilation failed (CompilerInterface)[0m
+[0m[[31merror[0m] [0m(compile:[31mcompileIncremental[0m) Compilation failed[0m
