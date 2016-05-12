@@ -109,14 +109,46 @@ class FunSetSuite extends FunSuite {
       assert(!contains(s, 3), "Union 3")
     }
   }
-  test("diff differences elements of set s from se t") {
+  test("diff differences elements of set s from set t") {
     new TestSets {
-      val s = union(s1, s2)
+      val s = diff(s1, s2)
       assert(contains(s, 1), "Union 1")
-      assert(contains(s, 2), "Union 2")
-      assert(!contains(s, 3), "Union 3")
+      assert(!contains(s, 2), "Union 2")
+    }
+  }
+  test("filter returns a subset of s for which p is true") {
+    new TestSets {
+      val s = union(s3, union(s1, s2))
+      assert(contains(s, 1), "pre-filter, contains 1")
+      assert(contains(s, 2), "pre-filter, contains 2")
+      assert(contains(s, 3), "pre-filter, contains 3")
+      val g = filter(s, (_ > 1))
+      assert(!contains(g, 1), "{1 2 3} filter _ > 1 => false for 1")
+      assert(contains(g, 2), "{1 2 3} filter _ > 1 => true for 2")
+      assert(contains(g, 3), "{1 2 3} filter _ > 1 => true for 3")
     }
   }
 
+  test("forall returns true for set {1,2,3} and _ < 5") {
+    new TestSets {
+      val s = union(s3, union(s1, s2))
+      assert(contains(s, 1), "Set contains 1")
+      assert(contains(s, 2), "Set contains 2")
+      assert(contains(s, 3), "Set contains 3")
+      assert(forall(s, (_ < 5)), "{1,2,3} are all < 5")
+    }
+  }
 
+  test("Exists returns true for 2 from set {1,2,3}") {
+    new TestSets {
+      val s = union(s3, union(s1, s2))
+      assert(contains(s, 1), "pre-filter, contains 1")
+      assert(contains(s, 2), "pre-filter, contains 2")
+      assert(contains(s, 3), "pre-filter, contains 3")
+      // val g = exists(s, (x == 1))
+      assert(exists(s, (_ == 2)), "2 exists in set {1,2,3}")
+    }
+  }
+
+  
 }

@@ -3,3 +3,6 @@
 [0m[[0minfo[0m] [0m[32m- singletonSet(1) contains 1[0m[0m
 [0m[[0minfo[0m] [0m[32m- union contains all elements of each set[0m[0m
 [0m[[0minfo[0m] [0m[32m- diff differences elements of set s from set t[0m[0m
+[0m[[0minfo[0m] [0m[32m- filter returns a subset of s for which p is true[0m[0m
+[0m[[0minfo[0m] [0m[32m- forall returns true for set {1,2,3} and _ < 5[0m[0m
+[0m[[0minfo[0m] [0m[32m- Exists returns true for 2 from set {1,2,3}[0m[0m
