@@ -68,9 +68,19 @@ abstract class TweetSet {
    * Question: Should we implment this method here, or should it remain abstract
    * and be implemented in the subclasses?
    */
-
-  def mostRetweeted: Tweet   
-
+  def mostRetweeted: Tweet = {
+    if(this == Empty) throw java.util.NoSuchElementException
+    def go(currentSet: TweetSet, topTweet: Tweet) {
+      if(currentSet.right == Empty && currentSet.left == Empty)
+        topTweet
+      else if(topTweet.retweets > currentSet.elem.retweets) 
+        go(currentSet.right.union(currentSet.left), topTweet)
+      else
+        go(currentSet.right.union(currentSet.left), currentSet.elem)
+    }
+    go(this, new Tweet("usr", "txt", -1)) // fake tweet
+  }
+  
   /**
    * Returns a list containing all tweets of this set, sorted by retweet count
    * in descending order. In other words, the head of the resulting list should
@@ -80,13 +90,7 @@ abstract class TweetSet {
    * Question: Should we implment this method here, or should it remain abstract
    * and be implemented in the subclasses?
     */
-  def descendingByRetweet: TweetList = {
-    val maxTweet = this.mostRetweeted
-    if(this.mostRetweeted.retweets < 0)
-      Nil
-    else
-      new Cons(maxTweet, this.remove(maxTweet).descendingByRetweet)
-  }
+    def descendingByRetweet: TweetList = ???
   
   /**
    * The following methods are already implemented
@@ -117,11 +121,9 @@ abstract class TweetSet {
 }
 
 class Empty extends TweetSet {
-  def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = acc
+  def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = new Empty
 
   def union(that: TweetSet): TweetSet = that
-
-  def mostRetweeted: Tweet = new Tweet("bogus-usr", "bogus-txt", -1)
 
   /**
    * The following methods are already implemented
@@ -147,13 +149,7 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
   }
 
   def union(that: TweetSet): TweetSet = right.union(left.union(that.incl(elem)))
-
-  def mostRetweeted = {
-    val leftMost = left.mostRetweeted
-    val rightMost = right.mostRetweeted
-    val temp = if (elem.retweets > leftMost.retweets) elem else leftMost
-    if (temp.retweets > rightMost.retweets) temp else rightMost
-  }   // ty to the person in the forum for this.
+  
 
   /**
    * The following methods are already implemented
@@ -208,7 +204,7 @@ object GoogleVsApple {
   val google = List("android", "Android", "galaxy", "Galaxy", "nexus", "Nexus")
   val apple = List("ios", "iOS", "iphone", "iPhone", "ipad", "iPad")
 
-  lazy val googleTweets: TweetSet = ???
+    lazy val googleTweets: TweetSet = ???
   lazy val appleTweets: TweetSet = ???
   
   /**
