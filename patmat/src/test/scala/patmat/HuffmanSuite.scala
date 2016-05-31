@@ -34,7 +34,7 @@ class HuffmanSuite extends FunSuite {
   }
 
   test("times aba == List(('a', 2), ('b', 1))") {
-    assert(times(List('a','b','a')) === List(('a', 2), ('b', 1)))
+    assert(times(List('a','b','a')) === List(('b', 1), ('a', 2)))
   }
 
   test("makeOrderedLeafList for some frequency table") {

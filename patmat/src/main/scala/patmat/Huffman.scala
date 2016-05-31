@@ -80,31 +80,25 @@ object Huffman {
    *   }
    */
   def times(chars: List[Char]): List[(Char, Int)] = {
-    // use chars.Count(chars.head) ?-- etc.
+    // pattern matching?
+    // use chars.count(chars.head) ?-- etc.
     // or maybe contains?
-    // maybe ~ map ( x => if(!accum(x)) accum :: (x, chars.count(x)) else accum) ? 
-  }
-  // burn it down, throw it out, replace this with contains and other stuff.
-    // def loop(shrinkingChars: List[Char], accum: Map[Char, Int]): Map[Char, Int] = {
-    //   if(shrinkingChars.isEmpty)
-    //     accum
-    //   else {
-    //     if(accum contains shrinkingChars.head)
-    //       loop(shrinkingChars.tail, accum updated (shrinkingChars.head, (accum(shrinkingChars.head) + 1)))
-    //     else 
-    //       loop(shrinkingChars.tail, accum + (shrinkingChars.head->1))
-    //   }
-    // }
-    // val quantityMap = loop(chars.tail, Map(chars.head->1))
-    // println(quantityMap.keys)
-    // println(quantityMap.values)
-    // def loop2(quantMap: Map[Char, Int], accum: List[(Char, Int)]): List[(Char, Int)] = {
-    //   if(quantMap)
+    // maybe ~ map ( x => if(!accum.contains(x)) accum :: (x, chars.count(x)) else accum) ? 
+    def loop(shrinkingChars: List[Char], accum: List[(Char, Int)]): List[(Char, Int)] = {
+      // println(chars.count(shrinkingChars.head == _))
+      println("Accum" + accum)
+      if (shrinkingChars.isEmpty)
+        accum
+      else
+        if(!accum.contains((shrinkingChars.head, chars.count(shrinkingChars.head == _))))
+          loop(shrinkingChars.tail, (shrinkingChars.head, chars.count(shrinkingChars.head == _)) :: accum)
 
-    // }
-    // loop2()
-    // println(testing)
-    // List[(Char, Int)](('a', 1))
+          // loop(shrinkingChars.tail, (shrinkingChars.head, 1) :: accum)
+        else
+          loop(shrinkingChars.tail, accum)
+    }
+    loop(chars.tail, List[(Char, Int)]((chars.head, chars.count(chars.head == _))))
+  }
   /**
    * Returns a list of `Leaf` nodes for a given frequency table `freqs`.
    *
