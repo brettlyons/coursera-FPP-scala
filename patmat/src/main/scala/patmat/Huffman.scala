@@ -86,7 +86,7 @@ object Huffman {
     // maybe ~ map ( x => if(!accum.contains(x)) accum :: (x, chars.count(x)) else accum) ? 
     def loop(shrinkingChars: List[Char], accum: List[(Char, Int)]): List[(Char, Int)] = {
       // println(chars.count(shrinkingChars.head == _))
-      println("Accum" + accum)
+      // println("Accum " + accum)
       if (shrinkingChars.isEmpty)
         accum
       else
@@ -112,7 +112,7 @@ object Huffman {
   /**
    * Checks whether the list `trees` contains only one single code tree.
    */
-    def singleton(trees: List[CodeTree]): Boolean = ???
+    def singleton(trees: List[CodeTree]): Boolean = (trees.size == 1)
   
   /**
    * The parameter `trees` of this function is a list of code trees ordered
@@ -126,8 +126,37 @@ object Huffman {
    * If `trees` is a list of less than two elements, that list should be returned
    * unchanged.
    */
-    def combine(trees: List[CodeTree]): List[CodeTree] = ???
-  
+  def combine(trees: List[CodeTree]): List[CodeTree] = {
+    if(trees.size < 3)
+      trees
+    else
+      // println ("trees.head " + trees.head)
+      // println ("trees.tail.head " + trees.tail.head)
+      // println ("trees.head.chars " + chars(trees.head))
+      // println ("trees.tail.head.chars " + chars(trees.tail.head))
+      // println ("trees.head.weight " + weight(trees.head))
+      // println ("trees.tail.head.weight " + weight(trees.tail.head))
+      // println ("trees.tail.head.weight " + (weight(trees.head) + weight(trees.tail.head)))
+      // println ("trees.tail.tail " + trees.tail.tail)
+
+    println(weight(trees.head) + weight(trees.tail.head))
+    val talweight = (weight(trees.head) + weight(trees.tail.head))
+    // println("Talweight: " + talweight)
+    val talchars: List[Char] = chars(trees.head) ::: chars(trees.tail.head)
+    // println("talchars: " + talchars)
+    val accum =
+      Fork(trees.head,
+        trees.tail.head,
+        talchars,
+        talweight) :: trees.tail.tail
+
+    val sorted = accum.sortWith((x, y) => weight(x) < weight(y))
+    // println(sorted)
+    sorted
+  // case class Fork(left: CodeTree, right: CodeTree, chars: List[Char], weight: Int) extends CodeTree
+      // trees
+  }
+
   /**
    * This function will be called in the following way:
    *
