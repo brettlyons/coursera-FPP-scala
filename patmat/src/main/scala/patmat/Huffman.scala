@@ -249,12 +249,10 @@ object Huffman {
           case Leaf(char, _) =>
             loop(tree, innerText.tail, accum)
           case Fork(leftTree, rightTree, _,_) =>
-            chars(rightTree).contains(innerText.head) match {
-              case True =>
+              if(chars(rightTree).contains(innerText.head))
                 loop(rightTree, innerText, accum ::: List(1))
-              case False =>
+              else
                 loop(leftTree, innerText, accum ::: List(0))
-            }
         }
       }
     }
