@@ -252,7 +252,7 @@ object Huffman {
             chars(rightTree).contains(innerText.head) match {
               case True =>
                 loop(rightTree, innerText, accum ::: List(1))
-              case Fasle =>
+              case False =>
                 loop(leftTree, innerText, accum ::: List(0))
             }
         }
