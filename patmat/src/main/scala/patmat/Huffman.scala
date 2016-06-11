@@ -80,8 +80,6 @@ object Huffman {
     *   }
     */
   def times(chars: List[Char]): List[(Char, Int)] = {
-    if(chars == Nil)
-      Nil
     // pattern matching?
     // use chars.count(chars.head) ?-- etc.
     // or maybe contains?
@@ -99,7 +97,10 @@ object Huffman {
       else
         loop(shrinkingChars.tail, accum)
     }
-    loop(chars.tail, List[(Char, Int)]((chars.head, chars.count(chars.head == _))))
+    if(chars == Nil)
+      Nil
+    else
+      loop(chars.tail, List[(Char, Int)]((chars.head, chars.count(chars.head == _))))
   }
   /**
     * Returns a list of `Leaf` nodes for a given frequency table `freqs`.
@@ -129,12 +130,10 @@ object Huffman {
     * unchanged.
     */
   def combine(trees: List[CodeTree]): List[CodeTree] = {
-    if(trees == Nil)
-      Nil
-    if(trees.size < 3)
+    if(trees.size < 2)
       trees
     else
-      println (weight(trees.head) + weight(trees.tail.head));
+      println(weight(trees.head) + weight(trees.tail.head));
       val talweight = (weight(trees.head) + weight(trees.tail.head))
       val talchars: List[Char] = chars(trees.head) ::: chars(trees.tail.head)
       val accum =
@@ -142,9 +141,8 @@ object Huffman {
           trees.tail.head,
           talchars,
           talweight) :: trees.tail.tail
-
-      val sorted = accum.sortWith((x, y) => weight(x) < weight(y))
-      sorted
+    // returns
+      accum.sortWith((x, y) => weight(x) < weight(y))
   }
 
   /**
@@ -196,15 +194,25 @@ object Huffman {
     * the resulting list of characters.
     */
   def decode(tree: CodeTree, bits: List[Bit]): List[Char] = {
-    def charsAccum(accum: List[Char]): List[Char] = {
-      tree match {
-        case Fork(leftTree, rightTree, chars, weight)
-            => if(bits.head == 1) accum ::: decode(rightTree, bits.tail) else accum ::: decode(leftTree, bits.tail)
-        case Leaf(char, weight) => List(char)
+    def loop(innerTree: CodeTree, innerBits: List[Bit], accum: List[Char]): List[Char] = {
+      if(innerBits == Nil)
+        accum ::: chars(innerTree)
+      else {
+        innerTree match {
+          case Leaf(char, _) =>
+            loop(tree, innerBits, accum ::: List(char))
+          case Fork(leftTree, rightTree, _,_) =>
+            innerBits.head match {
+              case 1 =>
+                loop(rightTree, innerBits.tail, accum)
+              case 0 =>
+                loop(leftTree, innerBits.tail, accum)
+            }
+        }
+        
       }
     }
-    println(charsAccum(Nil))
-    charsAccum(Nil)
+    loop(tree, bits, Nil)
   }
   /**
     * A Huffman coding tree for the French language.
@@ -232,17 +240,26 @@ object Huffman {
     * This function encodes `text` using the code tree `tree`
     * into a sequence of bits.
     */
-  def encode(tree: CodeTree)(text: List[Char]): List[Bit] = ??? 
-  // {
-  //   def bitsAccum(accum: List[Bit]): List[Bit] = {
-  //     tree match {
-  //       case Fork(leftTree, rightTree, chars, weight)
-  //           => if(text.head == ???) ??? else ???
-  //       case Leaf(char, weight) => if(text.head == char) accum else 
-  //     }
-  //   }
-  //   bitsAccum(Nil)
-  // }
+  def encode(tree: CodeTree)(text: List[Char]): List[Bit] = {
+    def loop(innerTree: CodeTree, innerText: List[Char], accum: List[Bit]): List[Bit] = {
+      if(innerText == Nil)
+        accum
+      else {
+        innerTree match {
+          case Leaf(char, _) =>
+            loop(tree, innerText.tail, accum)
+          case Fork(leftTree, rightTree, _,_) =>
+            chars(rightTree).contains(innerText.head) match {
+              case True =>
+                loop(rightTree, innerText, accum ::: List(1))
+              case Fasle =>
+                loop(leftTree, innerText, accum ::: List(0))
+            }
+        }
+      }
+    }
+    loop(tree, text, Nil)
+  }
   
   // Part 4b: Encoding using code table
 
