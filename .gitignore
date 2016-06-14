@@ -1,4 +1,5 @@
 *.class
+.ensime_cache/*
 target/*
 export
 out
