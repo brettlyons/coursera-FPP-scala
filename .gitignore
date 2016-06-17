@@ -1,6 +1,5 @@
 *.class
-*/.ensime_cache/*
-target/*
-*/target/*
+.ensime_cache
+target
 export
 out
