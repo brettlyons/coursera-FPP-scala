@@ -97,7 +97,10 @@ object Anagrams {
    *  in the example above could have been displayed in some other order.
    */
   def combinations(occurrences: Occurrences): List[Occurrences] = ???
-
+  // for x in occurences
+  // for y in occurences
+  // for count in each occurences cell._2
+  // yield list(list x, list y)
   /**
    * Subtracts occurrence list `y` from occurrence list `x`.
    *
@@ -109,8 +112,11 @@ object Anagrams {
    *  Note: the resulting value is an occurrence - meaning it is sorted
    *  and has no zero-entries.
    */
-  def subtract(x: Occurrences, y: Occurrences): Occurrences = x filter (g => g._1 != y.head._1)
+  def subtract(xs: Occurrences, ys: Occurrences): Occurrences = xs diff ys
 
+  // map over x,
+  // within fn(x), map over y, if x._2 > 1 && x._1 == y._1
+  // return (x._1, x._2 - 1)
   /**
    * Returns a list of all anagram sentences of the given sentence.
    *
