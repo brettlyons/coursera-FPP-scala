@@ -1,0 +1,26 @@
+(
+ :root-dir "/home/brett/workspace/coursera-FPP-scala/forcomp"
+ :cache-dir "/home/brett/workspace/coursera-FPP-scala/forcomp/.ensime_cache"
+ :scala-compiler-jars ("/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.11.7/scala-compiler-2.11.7.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.7/scala-library-2.11.7.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.11.7/scala-reflect-2.11.7.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/scalap/2.11.7/scalap-2.11.7.jar")
+ :name "root"
+ :java-home "/usr/lib/jvm/java-7-openjdk"
+ :java-flags ("-Xss2m" "-Xms1024m" "-Xmx1024m" "-XX:ReservedCodeCacheSize=128m" "-XX:MaxPermSize=256m")
+ :java-compiler-args nil
+ :reference-source-roots nil
+ :scala-version "2.11.7"
+ :compiler-args ("-deprecation" "-feature" "-Xlint" "-Yinline-warnings" "-Yno-adapted-args" "-Ywarn-dead-code" "-Ywarn-numeric-widen" "-Xfuture" "-Ywarn-unused-import" "-Ymacro-expand:discard")
+ :formatting-prefs nil
+ :disable-source-monitoring nil
+ :disable-class-monitoring nil
+ :subprojects ((
+   :name "root"
+   :source-roots ("/home/brett/workspace/coursera-FPP-scala/forcomp/src/main/scala" "/home/brett/workspace/coursera-FPP-scala/forcomp/src/test/scala")
+   :targets ("/home/brett/workspace/coursera-FPP-scala/forcomp/target/scala-2.11/classes")
+   :test-targets ("/home/brett/workspace/coursera-FPP-scala/forcomp/target/scala-2.11/test-classes")
+   :depends-on-modules nil
+   :compile-deps ("/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.7/scala-library-2.11.7.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.4/scala-parser-combinators_2.11-1.0.4.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.11.7/scala-reflect-2.11.7.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.11/1.0.4/scala-xml_2.11-1.0.4.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scalatest/scalatest_2.11/2.2.4/scalatest_2.11-2.2.4.jar")
+   :runtime-deps nil
+   :test-deps ("/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/junit/junit/4.10/junit-4.10.jar")
+   :doc-jars ("/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/junit/junit/4.10/junit-4.10-javadoc.jar" "/home/brett/workspace/coursera-FPP-scala/forcomp/target/scala-2.11/progfun1-forcomp_2.11-0.1-SNAPSHOT-javadoc.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.7/scala-library-2.11.7-javadoc.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.4/scala-parser-combinators_2.11-1.0.4-javadoc.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.11.7/scala-reflect-2.11.7-javadoc.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.11/1.0.4/scala-xml_2.11-1.0.4-javadoc.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scalatest/scalatest_2.11/2.2.4/scalatest_2.11-2.2.4-javadoc.jar")
+   :reference-source-roots ("/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1-sources.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/junit/junit/4.10/junit-4.10-sources.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.7/scala-library-2.11.7-sources.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.4/scala-parser-combinators_2.11-1.0.4-sources.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.11.7/scala-reflect-2.11.7-sources.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.11/1.0.4/scala-xml_2.11-1.0.4-sources.jar" "/home/brett/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scalatest/scalatest_2.11/2.2.4/scalatest_2.11-2.2.4-sources.jar")))
+)
