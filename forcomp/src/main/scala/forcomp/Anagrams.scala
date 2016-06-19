@@ -45,6 +45,11 @@ object Anagrams {
 
   /** Converts a sentence into its character occurrence list. */
   def sentenceOccurrences(s: Sentence): Occurrences = s.flatMap(wordOccurrences);
+  // runs wordOccurrences on each word, rather than on all the letters.
+  // so ('r', 2), ('r', 1) might occur in the list of Occurences this returns
+
+  // Maybe reduce, because I want to fold any ('r', 2) combined with ('r', 1)
+  // into ('r', 3) and then sort afterwards
 
   /**
    * The `dictionaryByOccurrences` is a `Map` from different occurrences to a sequence of all
@@ -62,10 +67,11 @@ object Anagrams {
    *    List(('a', 1), ('e', 1), ('t', 1)) -> Seq("ate", "eat", "tea")
    *
    */
-  lazy val dictionaryByOccurrences: Map[Occurrences, List[Word]] = ???
 
+  lazy val dictionaryByOccurrences: Map[Occurrences, List[Word]] = dictionary.groupBy(wordOccurrences)
+ 
   /** Returns all the anagrams of a given word. */
-  def wordAnagrams(word: Word): List[Word] = ???
+  def wordAnagrams(word: Word): List[Word] = dictionaryByOccurrences.apply(wordOccurrences(word));
 
   /**
    * Returns the list of all subsets of the occurrence list.
@@ -103,7 +109,7 @@ object Anagrams {
    *  Note: the resulting value is an occurrence - meaning it is sorted
    *  and has no zero-entries.
    */
-  def subtract(x: Occurrences, y: Occurrences): Occurrences = ???
+  def subtract(x: Occurrences, y: Occurrences): Occurrences = x filter (g => g._1 != y.head._1)
 
   /**
    * Returns a list of all anagram sentences of the given sentence.
