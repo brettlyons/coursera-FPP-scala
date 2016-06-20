@@ -127,55 +127,17 @@ object Anagrams {
    *  Note: the resulting value is an occurrence - meaning it is sorted
    *  and has no zero-entries.
    */
-  def subtract(xs: Occurrences, ys: Occurrences): Occurrences = {
-    // val firstTrim = for {
-    //   y <- ys
-    //   x <- for {
-    //     x <- xs
-    //     if (x._1 == y._1 && x._2 > y._2)
-    //   } yield (x._1, x._2 - y._2)
-    // } yield (x._1, x._2)
-    // val secondTrim = for {
-    //   x <- firstTrim
-    //   y <- ys
-    //   if(!(y._2 <= x._2))
-    // } yield x
-    // println(firstTrim)
-    // println(secondTrim)
-    // secondTrim;
-    // tempted to write this as a for-expression just to see if I can?
-    // I dunno how clear this is ...  it reminds me of assembler
-    def loop(xs: Occurrences, accum: Occurrences = List()): Occurrences = {
-      if (xs.isEmpty)
-        accum.sorted
-      else  {
-        val x = xs.head;
-        if (x._2 > 1 && ys.count(y => x._1 == y._1) > 0) {
-          val tmpY = for (y <- ys if (y._1 == x._1)) yield y
-          if((x._2 - tmpY.head._2) < 1)
-            loop(xs.tail, accum) // if there's as many Y's as X's, don't add x's
-          else
-            loop(xs.tail, (x._1, (x._2 - tmpY.head._2)) :: accum )
-        }
-        else if (x._2 == 1 && ys.count( y => x._1 == y._1) > 0)
-          loop(xs.tail, accum)
-        else
-          loop(xs.tail, x :: accum)
-      }
-    }
-    loop(xs)
-  }
+  def subtract(xs: Occurrences, ys: Occurrences): Occurrences = xs.reduce((accum, x) => {
+    if (x._2 > 1 && ys.contains((x._1, x._2)))
+      accum :: (x._1, (x._2 - 1))
+    else if (x._2 == 1 && ys.contains((x._1, x._2)))
+      accum
+    else
+      accum :: x
+  })
 
 
 
-    // xs.reduceLeft((accum: Occurrences, x: (Char, Int)) => {
-    //   if (x._2 > 1 && ys.contains((x._1, x._2)))
-    //     accum :: (x._1, (x._2 - 1))
-    //   else if (x._2 == 1 && ys.contains((x._1, x._2)))
-    //     accum
-    //   else
-    //     accum :: x
-    // })
 
   // xs diff ys // passes some tests but not totally complete yet.
 
